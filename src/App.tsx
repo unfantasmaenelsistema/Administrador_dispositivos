@@ -544,6 +544,10 @@ export default function App() {
             <h1 className="text-[12px] font-medium text-[#1a1a1a] truncate">
               Administrador de dispositivos
             </h1>
+            <span className="inline-flex items-center px-1.5 py-0.5 rounded-[3px] bg-[#e0f2fe] text-[#075985] text-[10.5px] font-medium whitespace-nowrap shrink-0">
+              <span className="sm:hidden">Simulador</span>
+              <span className="hidden sm:inline">Simulador educativo · GhostAcademy</span>
+            </span>
           </div>
 
           {/* Botones de control falsos estilo Windows 11 */}
@@ -899,7 +903,7 @@ export default function App() {
 
           <div className="flex items-center gap-2 shrink-0">
             {/* Filtro rápido de hardware */}
-            <div className="relative hidden md:flex items-center">
+            <div className="relative flex items-center">
               <i
                 className="fa-solid fa-filter text-[10px] text-[#64748b] absolute left-2 pointer-events-none"
                 aria-hidden="true"
@@ -909,8 +913,8 @@ export default function App() {
                 aria-label="Filtrar dispositivos o VEN/DEV"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Filtrar hardware o VEN/DEV..."
-                className="h-7 w-[200px] pl-6 pr-2 text-[11.5px] text-[#1a1a1a] bg-white border border-[#d4d4d8] rounded-[4px] focus:outline-none focus:border-[#0067c0] focus:ring-1 focus:ring-[#0067c0]"
+                placeholder="Filtrar o VEN/DEV..."
+                className="h-7 w-[150px] sm:w-[200px] pl-6 pr-2 text-[11.5px] text-[#1a1a1a] bg-white border border-[#d4d4d8] rounded-[4px] focus:outline-none focus:border-[#0067c0] focus:ring-1 focus:ring-[#0067c0]"
               />
             </div>
 
@@ -1060,7 +1064,7 @@ export default function App() {
           >
             {!logoError ? (
               <img
-                src="./assets/aistudio/icono_81a3db5b.png"
+                src="./assets/logo.png"
                 alt="Logo de Un Fantasma en el Sistema"
                 referrerPolicy="no-referrer"
                 onError={() => setLogoError(true)}

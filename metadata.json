@@ -1,6 +1,0 @@
-{
-  "name": "Administrador de dispositivos (devmgmt.msc)",
-  "description": "Réplica visual del Administrador de dispositivos de Windows 11 con vista de árbol colapsable.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

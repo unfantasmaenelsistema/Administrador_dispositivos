@@ -68,9 +68,11 @@ export function HelpModal({ mode, onClose }: HelpModalProps) {
                       Código 10 — Este dispositivo no puede iniciar
                     </p>
                     <p className="text-[12px] text-[#475569] mt-0.5">
-                      El controlador falló al inicializar el hardware durante el arranque. Suele
-                      resolverse actualizando/reinstalando el controlador o deshabilitando y
-                      habilitando el adaptador.
+                      El controlador falló al inicializar el hardware durante el arranque. Si el
+                      fallo es puntual, deshabilitar y volver a habilitar el adaptador puede
+                      bastar; si la causa es el controlador (por ejemplo, una compilación de prueba
+                      sin firma WHQL), hay que actualizarlo o desinstalar el dispositivo y buscar
+                      cambios de hardware. Dejarlo deshabilitado solo oculta el problema.
                     </p>
                   </div>
 
