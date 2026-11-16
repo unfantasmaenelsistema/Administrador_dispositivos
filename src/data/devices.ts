@@ -525,13 +525,18 @@ export const HELPDESK_TICKETS: HelpDeskTicket[] = [
     userReport:
       'El portátil perdió la conectividad Wi-Fi corporativa y el adaptador muestra un error de inicialización.',
     objective:
-      'Identifique el adaptador de red con Código 10 y reinstale su controlador o deshabilítelo.',
-    hint: 'En Adaptadores de red → Intel(R) Wi-Fi 6E AX211 160MHz → revise la alerta de firma sin verificar y actualice con PCI\\VEN_8086&DEV_51F0 o deshabilite el adaptador.',
+      'Identifique el adaptador de red con Código 10 y devuélvale la conexión con un controlador firmado (WHQL).',
+    hint: 'En Adaptadores de red → Intel(R) Wi-Fi 6E AX211 160MHz → revise la alerta de firma sin verificar y actualice con PCI\\VEN_8086&DEV_51F0, o desinstálelo y pulse "Buscar cambios de hardware". Deshabilitarlo no devuelve la Wi-Fi al usuario.',
     targetDeviceId: 'net-intel-wifi',
+    // El usuario necesita la Wi-Fi: deshabilitar el adaptador quita el aviso amarillo, pero no resuelve la incidencia.
     isCompleted: (devices) => {
       const net = devices.find((d) => d.id === 'net-intel-wifi');
       return Boolean(
-        net && (net.disabled === true || (net.status === 'OK' && net.errorCode === null))
+        net &&
+          !net.disabled &&
+          net.status === 'OK' &&
+          net.errorCode === null &&
+          net.driverSigner === WHQL_SIGNER
       );
     },
   },
